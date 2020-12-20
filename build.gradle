@@ -1,0 +1,137 @@
+buildscript { //buildscript代码块中的脚本优先执行：
+    ext { //其中ext用于定义动态属性，mavenCentral()表示使用了maven的中央仓库，dependenceies注明了依赖关系。
+        springBootVersion = '2.3.3.RELEASE'
+        springIOVersion = '1.0.0.RELEASE'
+    }
+
+    // gradle 脚本自身需要使用的资源
+    repositories {
+        mavenLocal()
+//        maven {
+//            url "https://maven.aliyun.com/repository/public/"
+//        }
+//        mavenCentral()
+    }
+
+    dependencies {
+        // 让spring-boot支持gradle
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+        // 热部署
+        classpath 'org.springframework:springloaded:1.2.8.RELEASE'
+        classpath "io.spring.gradle:dependency-management-plugin:${springIOVersion}"
+        // mybatis-generator 插件路径
+        classpath "gradle.plugin.com.arenagod.gradle:mybatis-generator-plugin:1.4"
+    }
+}
+
+plugins {
+    id 'java'
+    id 'org.springframework.boot' version '2.3.3.RELEASE'
+    id "com.arenagod.gradle.MybatisGenerator" version "1.4" //gradle提供的mybatis generator插件
+}
+
+//def appMainClass = 'com.sherlocky.job.Application'
+
+// apply plugin: 'java' // 已被 java-library 取代
+apply plugin: 'java-library'
+//// 使用spring boot
+apply plugin: 'org.springframework.boot'
+// 使用spring boot的自动依赖管理
+apply plugin: 'io.spring.dependency-management'
+//apply plugin: 'war'
+// IDE 文件生成
+//apply plugin: 'eclipse'
+apply plugin: 'idea'
+//引入 mybatis-generator 插件
+apply plugin: "com.arenagod.gradle.MybatisGenerator"
+// 生成启动脚本并打包tar/zip
+apply plugin: 'application'
+//mainClassName = DemoApplication
+
+group 'com.springboot.md'
+version '0.0.1-SNAPSHOT'
+
+[compileJava, compileTestJava, javadoc]*.options*.encoding = 'UTF-8'
+//设置jdk的版本
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+
+// 依赖配置 compile, runtime, testCompile, testRuntime（默认的，包含前面三个依赖）
+configurations {
+    testRuntime
+    mybatisGenerator
+}
+
+
+
+mybatisGenerator {
+    verbose = true
+    configFile = 'src/main/resources/generatorConfig.xml'
+}
+
+
+tasks.withType(JavaCompile) {
+    options.encoding = "UTF-8"
+}
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-web:2.3.3.RELEASE'
+    implementation 'org.springframework.boot:spring-boot-starter-jdbc:2.3.3.RELEASE'
+    implementation 'org.seleniumhq.selenium:selenium-server:3.141.59'
+    implementation 'mysql:mysql-connector-java:5.1.47'
+    implementation 'org.projectlombok:lombok:1.18.12'
+    compileOnly 'org.projectlombok:lombok:1.18.12'
+    annotationProcessor 'org.projectlombok:lombok:1.18.12'
+    implementation 'org.springframework.boot:spring-boot-starter-tomcat:2.3.3.RELEASE'
+    implementation 'org.springframework.boot:spring-boot-configuration-processor:2.3.3.RELEASE'
+    implementation 'org.springframework.boot:spring-boot-starter-validation:2.3.3.RELEASE'
+    implementation 'org.redisson:redisson-spring-boot-starter:3.14.0'
+    implementation 'org.apache.commons:commons-pool2:2.8.1'
+    implementation 'cn.hutool:hutool-all:5.4.7'
+    implementation 'org.apache.poi:poi:4.1.2'
+    implementation 'org.apache.poi:poi-ooxml:4.1.2'
+    implementation 'org.apache.commons:commons-lang3:3.10'
+    implementation 'com.google.guava:guava:27.0.1-jre'
+    implementation 'com.alibaba:fastjson:1.2.68'
+    implementation 'com.github.pagehelper:pagehelper-spring-boot-starter:1.2.5'
+    implementation 'org.apache.commons:commons-collections4:4.1'
+    implementation 'commons-io:commons-io:2.6'
+    implementation 'commons-lang:commons-lang:2.6'
+    implementation 'com.fasterxml.jackson.core:jackson-annotations:2.11.2'
+    implementation 'com.fasterxml.jackson.core:jackson-core:2.11.2'
+    implementation 'org.aspectj:aspectjweaver:1.9.6'
+    implementation 'org.springframework.kafka:spring-kafka:2.6.2'
+    implementation 'org.apache.kafka:kafka-clients:2.6.0'
+    implementation 'org.apache.kafka:kafka_2.13:2.6.0'
+    implementation 'org.apache.kafka:kafka-streams:2.6.0'
+    implementation 'org.springframework.boot:spring-boot-autoconfigure:2.3.5.RELEASE'
+    runtimeOnly 'org.springframework.boot:spring-boot-devtools:2.3.3.RELEASE'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test:2.3.3.RELEASE'
+    mybatisGenerator 'org.mybatis.generator:mybatis-generator-core:1.3.5'
+    mybatisGenerator 'mysql:mysql-connector-java:5.1.40'
+    mybatisGenerator 'tk.mybatis:mapper:3.3.9'
+}
+
+//dependencies {
+//    // compile gradle 3.0+ 已被标为过时方法，而新增了两个依赖指令，一个是implement 和api，这两个都可以进行依赖添加
+//    // api 指令: 完全等同于compile指令，没区别，你将所有的compile改成api，完全没问题
+//    api ('org.springframework.boot:spring-boot-starter-web')
+//   // api 'com.xuxueli:xxl-job-core:1.9.1'
+//    // implement 指令: 对于使用了该命令编译的依赖，对该项目有依赖的项目将无法访问到使用该命令编译的依赖中的任何程序，
+//    // 也就是将该依赖隐藏在内部，而不对外部公开
+//    // Google IO 相关话题的中提到了一个建议，就是依赖首先应该设置为implement的，如果没有错，那就用implement，如果有错，那么使用api指令，这样会使编译速度有所增快
+//    implementation 'com.google.guava:guava:23.0'
+//
+//    testCompile('org.springframework.boot:spring-boot-starter-test')
+//
+//    runtime group: 'org.springframework.boot', name: 'spring-boot-starter-tomcat'//, version: 'xxx'
+//}
+
+// 项目自身需要的资源
+//repositories {
+//    // mavenCentral()
+//    maven {
+//        url "https://maven.aliyun.com/repository/public/"
+//    }
+//}
+// 对于 springboot 的 gradle 项目，可以直接运行 bootRepackage 打可执行jar包，再结合 plugin: 'application' 可以打包成带执行脚本的格式
