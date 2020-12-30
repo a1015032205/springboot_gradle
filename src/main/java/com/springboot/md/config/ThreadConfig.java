@@ -10,6 +10,7 @@ import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 
 import java.lang.reflect.Method;
+import java.util.concurrent.ThreadPoolExecutor;
 
 /**
  * @Author 秒度
@@ -38,6 +39,7 @@ public class ThreadConfig implements AsyncConfigurer {
         executor.setQueueCapacity(100);
         //前缀名称
         executor.setThreadNamePrefix("cfx-thread-");
+        executor.setRejectedExecutionHandler(new ThreadPoolExecutor.DiscardPolicy());
         executor.initialize();
         return executor;
     }
