@@ -49,6 +49,7 @@ public class RedisSonController implements InitializingBean {
     @RedisLock(key = "redisKey", waitTime = 0L, leaseTime = 5L, isUnlock = true)
     @Async
     public void redisLock() throws InterruptedException {
+        TimeUnit.SECONDS.sleep(10L);
         String str = redisUtil.get("Info:Size");
         int size = str == null ? 0 : Integer.parseInt(str);
         String port = environment.getProperty("local.server.port");

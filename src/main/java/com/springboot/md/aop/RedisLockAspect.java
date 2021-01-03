@@ -47,15 +47,11 @@ public class RedisLockAspect {
             log.info("{}，没有抢到", name);
             return null;
         }
-
     }
-
-
     @AfterThrowing("redisLock()")
     public void afterThrowing(JoinPoint joinPoint) {
         unLock(joinPoint);
     }
-
     private Map<String, Object> getRedisLockInfo(JoinPoint joinPoint) {
         MethodSignature ms = (MethodSignature) joinPoint.getSignature();
         Method method = ms.getMethod();
@@ -64,16 +60,9 @@ public class RedisLockAspect {
         long waitTime = myAnnotation.waitTime();
         long leaseTime = myAnnotation.leaseTime();
         boolean unlock = myAnnotation.isUnlock();
-        return MapUtil.builder(new HashMap<String, Object>(8))
-                .put("key", key)
-                .put("waitTime", waitTime)
-                .put("leaseTime", leaseTime)
-                .put("isUnlock", unlock)
-                .build();
+        return MapUtil.builder(new HashMap<String, Object>(8)).put("key", key).put("waitTime", waitTime).put("leaseTime", leaseTime).put("isUnlock", unlock).build();
     }
-
-
-    public void unLock(JoinPoint joinPoint) {
+    private void unLock(JoinPoint joinPoint) {
         Map<String, Object> map = getRedisLockInfo(joinPoint);
         String key = MapUtil.getStr(map, "key");
         boolean locked = RedisLockUtil.isLocked(key);

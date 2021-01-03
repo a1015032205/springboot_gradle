@@ -59,10 +59,12 @@ targetCompatibility = 1.8
 
 // 依赖配置 compile, runtime, testCompile, testRuntime（默认的，包含前面三个依赖）
 configurations {
+    configurations {
+        compile.exclude module: 'spring-boot-starter-tomcat'
+    }
     testRuntime
     mybatisGenerator
 }
-
 
 
 mybatisGenerator {
@@ -75,7 +77,11 @@ tasks.withType(JavaCompile) {
     options.encoding = "UTF-8"
 }
 dependencies {
-    implementation 'org.springframework.boot:spring-boot-starter-web:2.3.3.RELEASE'
+    implementation("org.springframework.boot:spring-boot-starter-undertow:2.3.3.RELEASE")
+    implementation('org.springframework.boot:spring-boot-starter-web:2.3.3.RELEASE')
+            {
+                exclude group: 'org.springframework.boot', module: 'spring-boot-starter-tomcat'
+            }
     implementation 'org.springframework.boot:spring-boot-starter-jdbc:2.3.3.RELEASE'
     implementation 'org.seleniumhq.selenium:selenium-server:3.141.59'
     implementation 'mysql:mysql-connector-java:5.1.47'
@@ -87,7 +93,7 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-validation:2.3.3.RELEASE'
     implementation 'org.redisson:redisson-spring-boot-starter:3.14.0'
     implementation 'org.apache.commons:commons-pool2:2.8.1'
-    implementation 'cn.hutool:hutool-all:5.4.7'
+    implementation 'cn.hutool:hutool-all:5.5.4'
     implementation 'org.apache.poi:poi:4.1.2'
     implementation 'org.apache.poi:poi-ooxml:4.1.2'
     implementation 'org.apache.commons:commons-lang3:3.10'
@@ -105,7 +111,7 @@ dependencies {
     implementation 'org.apache.kafka:kafka_2.13:2.6.0'
     implementation 'org.apache.kafka:kafka-streams:2.6.0'
     implementation 'org.springframework.boot:spring-boot-autoconfigure:2.3.5.RELEASE'
-    runtimeOnly 'org.springframework.boot:spring-boot-devtools:2.3.3.RELEASE'
+    //runtimeOnly 'org.springframework.boot:spring-boot-devtools:2.3.3.RELEASE'
     testImplementation 'org.springframework.boot:spring-boot-starter-test:2.3.3.RELEASE'
     mybatisGenerator 'org.mybatis.generator:mybatis-generator-core:1.3.5'
     mybatisGenerator 'mysql:mysql-connector-java:5.1.40'

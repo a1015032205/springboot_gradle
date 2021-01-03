@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.springboot.md.dao.BossJavaJobMapper">
+    <resultMap id="BaseResultMap" type="com.springboot.md.pojo.BossJavaJob">
+        <id column="id" jdbcType="INTEGER" property="id"/>
+        <result column="company_name" jdbcType="VARCHAR" property="companyName"/>
+        <result column="job_name" jdbcType="VARCHAR" property="jobName"/>
+        <result column="money" jdbcType="VARCHAR" property="money"/>
+        <result column="city" jdbcType="VARCHAR" property="city"/>
+        <result column="are" jdbcType="VARCHAR" property="are"/>
+        <result column="street" jdbcType="VARCHAR" property="street"/>
+        <result column="year" jdbcType="VARCHAR" property="year"/>
+        <result column="education" jdbcType="VARCHAR" property="education"/>
+        <result column="welfare" jdbcType="VARCHAR" property="welfare"/>
+        <result column="technology" jdbcType="VARCHAR" property="technology"/>
+        <result column="num" jdbcType="VARCHAR" property="num"/>
+        <result column="listed" jdbcType="VARCHAR" property="listed"/>
+        <result column="type" jdbcType="VARCHAR" property="type"/>
+        <result column="name" jdbcType="VARCHAR" property="name"/>
+        <result column="c_user" jdbcType="VARCHAR" property="cUser"/>
+        <result column="c_time" jdbcType="TIMESTAMP" property="cTime"/>
+        <result column="u_user" jdbcType="VARCHAR" property="uUser"/>
+        <result column="u_time" jdbcType="TIMESTAMP" property="uTime"/>
+        <result column="del_tag" jdbcType="VARCHAR" property="delTag"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        id, company_name, job_name, money, city, are, street, year, education, welfare, technology,
+    num, listed, type, name, c_user, c_time, u_user, u_time, del_tag
+    </sql>
+    <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from boss_java_job
+        where id = #{id,jdbcType=INTEGER}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+        delete
+        from boss_java_job
+        where id = #{id,jdbcType=INTEGER}
+    </delete>
+    <insert id="insert" parameterType="com.springboot.md.pojo.BossJavaJob">
+        insert into boss_java_job (id, company_name, job_name,
+                                   money, city, are, street,
+                                   year, education, welfare,
+                                   technology, num, listed,
+                                   type, name, c_user,
+                                   c_time, u_user, u_time,
+                                   del_tag)
+        values (#{id,jdbcType=INTEGER}, #{companyName,jdbcType=VARCHAR}, #{jobName,jdbcType=VARCHAR},
+                #{money,jdbcType=VARCHAR}, #{city,jdbcType=VARCHAR}, #{are,jdbcType=VARCHAR},
+                #{street,jdbcType=VARCHAR},
+                #{year,jdbcType=VARCHAR}, #{education,jdbcType=VARCHAR}, #{welfare,jdbcType=VARCHAR},
+                #{technology,jdbcType=VARCHAR}, #{num,jdbcType=VARCHAR}, #{listed,jdbcType=VARCHAR},
+                #{type,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{cUser,jdbcType=VARCHAR},
+                #{cTime,jdbcType=TIMESTAMP}, #{uUser,jdbcType=VARCHAR}, #{uTime,jdbcType=TIMESTAMP},
+                #{delTag,jdbcType=VARCHAR})
+    </insert>
+    <insert id="insertSelective" parameterType="com.springboot.md.pojo.BossJavaJob">
+        insert into boss_java_job
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="companyName != null">
+                company_name,
+            </if>
+            <if test="jobName != null">
+                job_name,
+            </if>
+            <if test="money != null">
+                money,
+            </if>
+            <if test="city != null">
+                city,
+            </if>
+            <if test="are != null">
+                are,
+            </if>
+            <if test="street != null">
+                street,
+            </if>
+            <if test="year != null">
+                year,
+            </if>
+            <if test="education != null">
+                education,
+            </if>
+            <if test="welfare != null">
+                welfare,
+            </if>
+            <if test="technology != null">
+                technology,
+            </if>
+            <if test="num != null">
+                num,
+            </if>
+            <if test="listed != null">
+                listed,
+            </if>
+            <if test="type != null">
+                type,
+            </if>
+            <if test="name != null">
+                name,
+            </if>
+            <if test="cUser != null">
+                c_user,
+            </if>
+            <if test="cTime != null">
+                c_time,
+            </if>
+            <if test="uUser != null">
+                u_user,
+            </if>
+            <if test="uTime != null">
+                u_time,
+            </if>
+            <if test="delTag != null">
+                del_tag,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=INTEGER},
+            </if>
+            <if test="companyName != null">
+                #{companyName,jdbcType=VARCHAR},
+            </if>
+            <if test="jobName != null">
+                #{jobName,jdbcType=VARCHAR},
+            </if>
+            <if test="money != null">
+                #{money,jdbcType=VARCHAR},
+            </if>
+            <if test="city != null">
+                #{city,jdbcType=VARCHAR},
+            </if>
+            <if test="are != null">
+                #{are,jdbcType=VARCHAR},
+            </if>
+            <if test="street != null">
+                #{street,jdbcType=VARCHAR},
+            </if>
+            <if test="year != null">
+                #{year,jdbcType=VARCHAR},
+            </if>
+            <if test="education != null">
+                #{education,jdbcType=VARCHAR},
+            </if>
+            <if test="welfare != null">
+                #{welfare,jdbcType=VARCHAR},
+            </if>
+            <if test="technology != null">
+                #{technology,jdbcType=VARCHAR},
+            </if>
+            <if test="num != null">
+                #{num,jdbcType=VARCHAR},
+            </if>
+            <if test="listed != null">
+                #{listed,jdbcType=VARCHAR},
+            </if>
+            <if test="type != null">
+                #{type,jdbcType=VARCHAR},
+            </if>
+            <if test="name != null">
+                #{name,jdbcType=VARCHAR},
+            </if>
+            <if test="cUser != null">
+                #{cUser,jdbcType=VARCHAR},
+            </if>
+            <if test="cTime != null">
+                #{cTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="uUser != null">
+                #{uUser,jdbcType=VARCHAR},
+            </if>
+            <if test="uTime != null">
+                #{uTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="delTag != null">
+                #{delTag,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.springboot.md.pojo.BossJavaJob">
+        update boss_java_job
+        <set>
+            <if test="companyName != null">
+                company_name = #{companyName,jdbcType=VARCHAR},
+            </if>
+            <if test="jobName != null">
+                job_name = #{jobName,jdbcType=VARCHAR},
+            </if>
+            <if test="money != null">
+                money = #{money,jdbcType=VARCHAR},
+            </if>
+            <if test="city != null">
+                city = #{city,jdbcType=VARCHAR},
+            </if>
+            <if test="are != null">
+                are = #{are,jdbcType=VARCHAR},
+            </if>
+            <if test="street != null">
+                street = #{street,jdbcType=VARCHAR},
+            </if>
+            <if test="year != null">
+                year = #{year,jdbcType=VARCHAR},
+            </if>
+            <if test="education != null">
+                education = #{education,jdbcType=VARCHAR},
+            </if>
+            <if test="welfare != null">
+                welfare = #{welfare,jdbcType=VARCHAR},
+            </if>
+            <if test="technology != null">
+                technology = #{technology,jdbcType=VARCHAR},
+            </if>
+            <if test="num != null">
+                num = #{num,jdbcType=VARCHAR},
+            </if>
+            <if test="listed != null">
+                listed = #{listed,jdbcType=VARCHAR},
+            </if>
+            <if test="type != null">
+                type = #{type,jdbcType=VARCHAR},
+            </if>
+            <if test="name != null">
+                name = #{name,jdbcType=VARCHAR},
+            </if>
+            <if test="cUser != null">
+                c_user = #{cUser,jdbcType=VARCHAR},
+            </if>
+            <if test="cTime != null">
+                c_time = #{cTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="uUser != null">
+                u_user = #{uUser,jdbcType=VARCHAR},
+            </if>
+            <if test="uTime != null">
+                u_time = #{uTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="delTag != null">
+                del_tag = #{delTag,jdbcType=VARCHAR},
+            </if>
+        </set>
+        where id = #{id,jdbcType=INTEGER}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.springboot.md.pojo.BossJavaJob">
+        update boss_java_job
+        set company_name = #{companyName,jdbcType=VARCHAR},
+            job_name     = #{jobName,jdbcType=VARCHAR},
+            money        = #{money,jdbcType=VARCHAR},
+            city         = #{city,jdbcType=VARCHAR},
+            are          = #{are,jdbcType=VARCHAR},
+            street       = #{street,jdbcType=VARCHAR},
+            year         = #{year,jdbcType=VARCHAR},
+            education    = #{education,jdbcType=VARCHAR},
+            welfare      = #{welfare,jdbcType=VARCHAR},
+            technology   = #{technology,jdbcType=VARCHAR},
+            num          = #{num,jdbcType=VARCHAR},
+            listed       = #{listed,jdbcType=VARCHAR},
+            type         = #{type,jdbcType=VARCHAR},
+            name         = #{name,jdbcType=VARCHAR},
+            c_user       = #{cUser,jdbcType=VARCHAR},
+            c_time       = #{cTime,jdbcType=TIMESTAMP},
+            u_user       = #{uUser,jdbcType=VARCHAR},
+            u_time       = #{uTime,jdbcType=TIMESTAMP},
+            del_tag      = #{delTag,jdbcType=VARCHAR}
+        where id = #{id,jdbcType=INTEGER}
+    </update>
+
+    <insert id="add" parameterType="java.util.List">
+        insert into boss_java_job ( company_name, job_name,
+        money, city, are, street,
+        year, education, welfare,
+        technology, num, listed,
+        type, `name`)
+        values
+        <foreach collection="list" item="item" index="index" separator=",">
+            (
+            #{item.companyName},
+             #{item.jobName},
+            #{item.money},
+            #{item.city},
+            #{item.are},
+             #{item.street},
+             #{item.year},
+             #{item.education},
+             #{item.welfare},
+             #{item.technology},
+             #{item.num},
+             #{item.listed},
+             #{item.type},
+             #{item.name}
+            )
+        </foreach>
+    </insert>
+</mapper>

@@ -4,13 +4,40 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d4b6b09e-48a0-434f-8bdb-aaf6fc69a81f" name="Default Changelist" comment="" />
+    <list default="true" id="d4b6b09e-48a0-434f-8bdb-aaf6fc69a81f" name="Default Changelist" comment="Q">
+      <change afterPath="$PROJECT_DIR$/.project" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.settings/org.eclipse.buildship.core.prefs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/resources/DB/boss.ddl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/resources/application-test.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/resources/application.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/resources/banner.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/resources/generatorConfig.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/resources/mapper/BossJavaJobMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/resources/mapper/InfoMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/resources/mapper/JavaJob51Mapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/resources/rebel.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/resources/redisson-single.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/resources/tset-generatorConfig.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/rebel.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring-framework/spring-context/src/main/java/org/springframework/context/support/AbstractApplicationContext.java" beforeDir="false" afterPath="$PROJECT_DIR$/../spring-framework/spring-context/src/main/java/org/springframework/context/support/AbstractApplicationContext.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/springboot/md/aop/RedisLockAspect.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/springboot/md/aop/RedisLockAspect.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/springboot/md/controller/RedisSonController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/springboot/md/controller/RedisSonController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/redisson-single.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/redisson-single.yml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="CompilerWorkspaceConfiguration">
+    <option name="MAKE_PROJECT_ON_SAVE" value="true" />
+    <option name="PARALLEL_COMPILATION" value="true" />
+  </component>
   <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$/../spring-framework">
+      <ProjectState />
+    </projectState>
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
     </projectState>
@@ -37,17 +64,13 @@
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
                 <item name="springboot_gradle" type="f1a62948:ProjectNode" />
                 <item name="Tasks" type="e4a08cd1:TasksNode" />
-                <item name="other" type="c8890929:TasksNode$1" />
+                <item name="application" type="c8890929:TasksNode$1" />
               </path>
               <path>
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
                 <item name="springboot_gradle" type="f1a62948:ProjectNode" />
-                <item name="Dependencies" type="6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="springboot_gradle" type="f1a62948:ProjectNode" />
-                <item name="Run Configurations" type="7b0102dc:RunConfigurationsNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="build" type="c8890929:TasksNode$1" />
               </path>
             </expand>
             <select />
@@ -56,8 +79,38 @@
       </state>
     </system>
   </component>
+  <component name="Git.Merge.Settings">
+    <option name="BRANCH" value="origin/main" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="REBASE" />
+  </component>
   <component name="GitToolBoxStore">
     <option name="projectConfigVersion" value="2" />
+    <option name="recentBranches">
+      <RecentBranches>
+        <option name="branchesForRepo">
+          <list>
+            <RecentBranchesForRepo>
+              <option name="branches">
+                <list>
+                  <RecentBranch>
+                    <option name="branchName" value="main" />
+                    <option name="lastUsedInstant" value="1608453382" />
+                  </RecentBranch>
+                  <RecentBranch>
+                    <option name="branchName" value="master" />
+                    <option name="lastUsedInstant" value="1608453381" />
+                  </RecentBranch>
+                </list>
+              </option>
+              <option name="repositoryRootUrl" value="file://$PROJECT_DIR$" />
+            </RecentBranchesForRepo>
+          </list>
+        </option>
+      </RecentBranches>
+    </option>
   </component>
   <component name="GroovyConsoleState">
     <option name="list">
@@ -68,6 +121,9 @@
         </Entry>
       </list>
     </option>
+  </component>
+  <component name="JRebelWorkspace">
+    <option name="jrebelEnabledAutocompile" value="true" />
   </component>
   <component name="JsFlowSettings">
     <service-enabled>true</service-enabled>
@@ -92,6 +148,9 @@
     <option name="vmOptions" value="-DarchetypeCatalog=local" />
   </component>
   <component name="ProjectId" id="1lq1dkRi8iR63BqXIhKgkx9sBCa" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="abbreviatePackageNames" value="true" />
     <option name="flattenModules" value="true" />
@@ -99,6 +158,8 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="ExpandSpringBootJavaOptionsPanel" value="true" />
     <property name="Groovy.Last.Module.Chosen" value="demo" />
     <property name="HOTFIX_customHotfixCommitMessage_text" value="Tagging hotfix %name%" />
     <property name="RELEASE_customTagCommitMessage_text" value="Tagging version %name%" />
@@ -110,7 +171,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../sunflower-free" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -120,10 +181,13 @@
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15234375" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.project.gradle" />
+    <property name="settings.editor.selected.configurable" value="com.zeroturnaround.javarebel.idea.plugin.settings.AdvancedConfigurable" />
+  </component>
+  <component name="RebelAgentSelection">
+    <selection>jxr</selection>
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -143,103 +207,8 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Gradle.springboot_gradle [mbGenerator]">
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="springboot_gradle [bootRepackage]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value="bootRepackage" />
-          </list>
-        </option>
-        <option name="vmOptions" value="" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <method v="2" />
-    </configuration>
-    <configuration name="springboot_gradle [dependencies]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value="dependencies" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <method v="2" />
-    </configuration>
-    <configuration name="springboot_gradle [mbGenerator]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--debug" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value="mbGenerator" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <method v="2" />
-    </configuration>
-    <configuration name="springboot_gradle [run]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value="run" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <method v="2" />
-    </configuration>
-    <configuration name="DemoApplication (1)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+  <component name="RunManager">
+    <configuration name="DemoApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
       <module name="springboot_gradle.main" />
       <extension name="coverage">
         <pattern>
@@ -248,33 +217,23 @@
         </pattern>
       </extension>
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.springboot.md.DemoApplication" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="DemoApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
-      <module name="demo.main" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="com.springboot.md.DemoApplication" />
       <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="UPDATE_ACTION_UPDATE_POLICY" value="UpdateClassesAndResources" />
+      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
+      <additionalParameters>
+        <param>
+          <option name="enabled" value="true" />
+          <option name="name" value="rebel.base" />
+          <option name="value" value="E:\java\jrebel6" />
+        </param>
+      </additionalParameters>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <list>
-      <item itemvalue="Gradle.springboot_gradle [bootRepackage]" />
-      <item itemvalue="Gradle.springboot_gradle [dependencies]" />
-      <item itemvalue="Gradle.springboot_gradle [mbGenerator]" />
-      <item itemvalue="Gradle.springboot_gradle [run]" />
-      <item itemvalue="Spring Boot.DemoApplication" />
-      <item itemvalue="Spring Boot.DemoApplication (1)" />
-    </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.springboot_gradle [mbGenerator]" />
-        <item itemvalue="Gradle.springboot_gradle [run]" />
-        <item itemvalue="Spring Boot.DemoApplication (1)" />
-        <item itemvalue="Gradle.springboot_gradle [dependencies]" />
-        <item itemvalue="Gradle.springboot_gradle [bootRepackage]" />
+        <item itemvalue="Spring Boot.DemoApplication" />
       </list>
     </recent_temporary>
   </component>
@@ -297,12 +256,78 @@
       <workItem from="1608366600167" duration="490000" />
       <workItem from="1608367110198" duration="2610000" />
       <workItem from="1608372754718" duration="2431000" />
-      <workItem from="1608452078949" duration="12000" />
+      <workItem from="1608452078949" duration="3918000" />
+      <workItem from="1608463275942" duration="2366000" />
+      <workItem from="1608566574396" duration="869000" />
+      <workItem from="1608725389863" duration="879000" />
+      <workItem from="1608827357048" duration="50000" />
+      <workItem from="1608995776027" duration="227000" />
+      <workItem from="1608996045185" duration="285000" />
+      <workItem from="1608996833716" duration="838000" />
+      <workItem from="1608997703887" duration="427000" />
+      <workItem from="1608998225149" duration="1610000" />
+      <workItem from="1608999873854" duration="928000" />
+      <workItem from="1609245391121" duration="1599000" />
+      <workItem from="1609341212594" duration="82000" />
+      <workItem from="1609341362193" duration="5531000" />
+      <workItem from="1609515494306" duration="2430000" />
+      <workItem from="1609682781359" duration="21000" />
     </task>
+    <task id="LOCAL-00001" summary="Q">
+      <created>1608453409462</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1608453409462</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Q">
+      <created>1608453676263</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1608453676263</updated>
+    </task>
+    <task id="LOCAL-00003" summary="redis lock">
+      <created>1609344841058</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1609344841058</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="Q" />
+    <MESSAGE value="redis lock" />
+    <option name="LAST_COMMIT_MESSAGE" value="redis lock" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/springboot/md/aop/RedisLockAspect.java</url>
+          <line>40</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
