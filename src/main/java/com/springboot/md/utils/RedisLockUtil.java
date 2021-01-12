@@ -102,4 +102,8 @@ public class RedisLockUtil {
     public static boolean isHeldByCurrentThread(String lockKey) {
         return redisLock.isHeldByCurrentThread(lockKey);
     }
+
+    public static boolean isLocked(String lockKey) {
+        return redisLock.isLocked(lockKey);
+    }
 }

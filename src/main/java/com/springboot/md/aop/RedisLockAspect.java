@@ -31,49 +31,43 @@ public class RedisLockAspect {
     @Around("redisLock()")
     public Object around(ProceedingJoinPoint joinPoint) throws Throwable {
         String name = Thread.currentThread().getName();
-        Map<String, Object> map = getMap(joinPoint);
+        Map<String, Object> map = getRedisLockInfo(joinPoint);
         String key = MapUtil.getStr(map, "key");
         long waitTime = MapUtil.getLong(map, "waitTime");
         long leaseTime = MapUtil.getLong(map, "leaseTime");
+        boolean isUnlock = MapUtil.getBool(map, "isUnlock");
         if (RedisLockUtil.tryLock(key, waitTime, leaseTime)) {
             log.error("{}，抢到了！！！ 准备执行==========", name);
             Object proceed = joinPoint.proceed();
-            unLock(joinPoint);
+            if (isUnlock) {
+                unLock(joinPoint);
+            }
             return proceed;
         } else {
             log.info("{}，没有抢到", name);
             return null;
         }
-
     }
-
-
     @AfterThrowing("redisLock()")
     public void afterThrowing(JoinPoint joinPoint) {
         unLock(joinPoint);
     }
-
-    private Map<String, Object> getMap(JoinPoint joinPoint) {
+    private Map<String, Object> getRedisLockInfo(JoinPoint joinPoint) {
         MethodSignature ms = (MethodSignature) joinPoint.getSignature();
         Method method = ms.getMethod();
         RedisLock myAnnotation = method.getAnnotation(RedisLock.class);
         String key = myAnnotation.key();
         long waitTime = myAnnotation.waitTime();
         long leaseTime = myAnnotation.leaseTime();
-        return MapUtil.builder(new HashMap<String, Object>())
-                .put("key", key)
-                .put("waitTime", waitTime)
-                .put("leaseTime", leaseTime)
-                .build();
+        boolean unlock = myAnnotation.isUnlock();
+        return MapUtil.builder(new HashMap<String, Object>(8)).put("key", key).put("waitTime", waitTime).put("leaseTime", leaseTime).put("isUnlock", unlock).build();
     }
-
-
-    public void unLock(JoinPoint joinPoint) {
-        Map<String, Object> map = getMap(joinPoint);
+    private void unLock(JoinPoint joinPoint) {
+        Map<String, Object> map = getRedisLockInfo(joinPoint);
         String key = MapUtil.getStr(map, "key");
+        boolean locked = RedisLockUtil.isLocked(key);
         boolean heldByCurrentThread = RedisLockUtil.isHeldByCurrentThread(key);
-        if (heldByCurrentThread) {
-
+        if (locked && heldByCurrentThread) {
             RedisLockUtil.unlock(key);
             log.error(Thread.currentThread().getName() + "私放锁");
         }

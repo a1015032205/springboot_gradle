@@ -23,6 +23,8 @@ public @interface RedisLock {
 
     long waitTime() default 1L;
 
-    long leaseTime() default  5L;
+    long leaseTime() default 5L;
+
+    boolean isUnlock() default false;
 
 }

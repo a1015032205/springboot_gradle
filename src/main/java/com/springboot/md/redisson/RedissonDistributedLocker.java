@@ -74,4 +74,10 @@ public class RedissonDistributedLocker implements DistributedLocker {
         RLock lock = redissonClient.getLock(lockKey);
         return lock.isHeldByCurrentThread();
     }
+
+    @Override
+    public boolean isLocked(String lockKey) {
+        RLock lock = redissonClient.getLock(lockKey);
+        return lock.isLocked();
+    }
 }

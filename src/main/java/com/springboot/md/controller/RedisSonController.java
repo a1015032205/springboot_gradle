@@ -2,14 +2,12 @@ package com.springboot.md.controller;
 
 import com.springboot.md.aop.RedisLock;
 import com.springboot.md.dao.InfoMapper;
-import com.springboot.md.pojo.Info;
 import com.springboot.md.utils.RedisLockUtil;
 import com.springboot.md.utils.RedisUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
-import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -36,32 +34,38 @@ public class RedisSonController implements InitializingBean {
     @Autowired
     private ThreadPoolTaskExecutor executor;
 
-    @Autowired
+    @Resource
     private InfoMapper infoMapper;
 
     @Autowired
     private Environment environment;
 
-    @Autowired
-    private StringRedisTemplate redisTemplate;
-
-
     @Override
     public void afterPropertiesSet() throws Exception {
-        Info info = infoMapper.selectByPrimaryKey(1);
-        Integer age = info.getAge();
-        redisUtil.setIfAbsent("info", String.valueOf(age));
+        redisUtil.set("Info:Size", "10");
     }
 
-    // @Scheduled(cron = "*/1 * * * * ?")
     @RequestMapping("/lock")
-    @RedisLock(key = "redisKey", waitTime = 0L, leaseTime = 10L)
+    @RedisLock(key = "redisKey", waitTime = 0L, leaseTime = 5L, isUnlock = true)
     @Async
     public void redisLock() throws InterruptedException {
+        TimeUnit.SECONDS.sleep(10L);
+        String str = redisUtil.get("Info:Size");
+        int size = str == null ? 0 : Integer.parseInt(str);
         String port = environment.getProperty("local.server.port");
         String name = Thread.currentThread().getName();
-        TimeUnit.SECONDS.sleep(3L);
-        log.error("当前进入客户端端口：{}，当前线程名称：{},抢到了！！！！", port, name);
+        if (size > 0) {
+            TimeUnit.SECONDS.sleep(3L);
+            String value = String.valueOf(size - 1);
+            redisUtil.set("Info:Size", value);
+            infoMapper.del();
+            log.error("当前进入客户端端口：{}，当前买到的线程名称：{},剩余数量：{}", port, name, value);
+        } else {
+            System.out.println("==========卖完了=======================");
+            System.exit(0);
+        }
+
+
 //        String info = redisUtil.get("info");
 //        int i = Integer.parseInt(info);
 //
