@@ -8,13 +8,17 @@ server:
     context-path: /cfx
       # redisson lock
 spring:
+  devtools:
+    restart:
+      #热部署生效
+      enabled: false
   mvc:
     static-path-pattern: /**
   datasource:
-    driver-class-name: com.mysql.jdbc.Driver
-    name: root
+    url: jdbc:mysql://127.0.0.1:3306/cfx?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull&allowMultiQueries=true&useSSL=false
     password: a5268413
-    url: jdbc:mysql://127.0.0.1:3306/cfx?useUnicode=true&characterEncoding=utf-8&useSSL=false
+    username: root
+    driver-class-name: com.mysql.jdbc.Driver
   redis:
     host: 127.0.0.1
     port: 6379
@@ -34,8 +38,9 @@ spring:
     # Kafka服务端监听地址端口，集群用逗号分隔
     bootstrap-servers: 127.0.0.1:9092
     consumer:
+
       # 消费者组ID，在消费者实例没有指定消费者组的时候生效
-      group-id: test01
+      group-id: test
       # 如果为真，consumer所fetch的消息的offset将会自动的同步到zookeeper。
       enable-auto-commit: true
       # 每次自动提交offset的时间间隔，当enable-auto-commit设置为true时生效，默认值为5000，单位ms
