@@ -9,9 +9,6 @@ import org.springframework.boot.autoconfigure.kafka.KafkaProperties;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Lazy;
-import org.springframework.core.Ordered;
-import org.springframework.core.annotation.Order;
 import org.springframework.kafka.core.*;
 import org.springframework.kafka.security.jaas.KafkaJaasLoginModuleInitializer;
 import org.springframework.kafka.support.LoggingProducerListener;
@@ -31,7 +28,6 @@ import java.io.IOException;
 @Configuration(proxyBeanMethods = false)
 @ConditionalOnClass(KafkaTemplate.class)
 @EnableConfigurationProperties(KafkaProperties.class)
-@Order(Ordered.HIGHEST_PRECEDENCE)
 //@Import({KafkaAnnotationDrivenConfiguration.class, KafkaStreamsAnnotationDrivenConfiguration.class})
 public class KafkaAutoConfiguration {
 
@@ -54,7 +50,6 @@ public class KafkaAutoConfiguration {
 	}
 
 	@Bean
-	@Lazy
 	@ConditionalOnMissingBean(ProducerListener.class)
 	public ProducerListener<Object, Object> kafkaProducerListener() {
 		return new LoggingProducerListener<>();
