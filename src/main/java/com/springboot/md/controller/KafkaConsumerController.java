@@ -2,7 +2,6 @@ package com.springboot.md.controller;
 
 import lombok.extern.slf4j.Slf4j;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
-import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -19,7 +18,7 @@ import java.util.Optional;
 @Slf4j
 @RequestMapping("/KafkaConsumerController")
 public class KafkaConsumerController {
-   @KafkaListener(topics = {"topic1"})
+   //@KafkaListener(topics = {"topic1"})
     public void consumer(ConsumerRecord<?, ?> consumerRecord) {
         //判断是否为null
         Optional<?> kafkaMessage = Optional.ofNullable(consumerRecord.value());

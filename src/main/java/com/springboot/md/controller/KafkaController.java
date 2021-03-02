@@ -2,13 +2,12 @@ package com.springboot.md.controller;
 
 import com.springboot.md.config.AbstracController;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-import javax.annotation.Resource;
 
 /**
  * @Author: 秒度
@@ -21,15 +20,18 @@ import javax.annotation.Resource;
 @RequestMapping("/KafkaController")
 public class KafkaController extends AbstracController {
 
-	@Resource
-	private KafkaTemplate<String, String> kafkaTemplate;
+    @Autowired
+    private KafkaTemplate<String, String> kafkaTemplate;
 
 
-	//发送消息
-	@GetMapping("/kafka/normal/{message}")
-	public void sendMessage1(@PathVariable("message") String normalMessage) {
-		kafkaTemplate.send("topic1", normalMessage);
-	}
+    //发送消息
+    @GetMapping("/kafka/normal/{message}")
+    public void sendMessage1(@PathVariable("message") String normalMessage) {
+        for (int i = 0; i < 10000; i++) {
+            kafkaTemplate.send("topic1", normalMessage + i);
+        }
+
+    }
 
 
 }

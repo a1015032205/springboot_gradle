@@ -94,7 +94,7 @@ public class WebLogParsing {
         stopwatch.stop();
         long latency = stopwatch.getTotalTimeMillis();
         log.info("耗时：[{}]毫秒", latency);
-        recordAprCalled(httpServletRequest, latency);
+   //     recordAprCalled(httpServletRequest, latency);
         log.info("========================   END  =========================");
         return proceed;
     }

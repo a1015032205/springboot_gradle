@@ -10,6 +10,7 @@ import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 
 import java.lang.reflect.Method;
+import java.util.concurrent.Executors;
 import java.util.concurrent.ThreadPoolExecutor;
 
 /**
@@ -28,19 +29,15 @@ public class ThreadConfig implements AsyncConfigurer {
     @Primary
     public ThreadPoolTaskExecutor getAsyncExecutor() {
         ThreadPoolTaskExecutor executor = new ThreadPoolTaskExecutor();
-
         int core = Runtime.getRuntime().availableProcessors();
-
-        //核心数量
         executor.setCorePoolSize(core);
-        //最大线程数
-        executor.setMaxPoolSize((core << 1) + core);
-        //等待队列
+        executor.setMaxPoolSize((core << 1) + 1);
         executor.setQueueCapacity(100);
-        //前缀名称
         executor.setThreadNamePrefix("cfx-thread-");
+        executor.setThreadFactory(Executors.defaultThreadFactory());
         executor.setRejectedExecutionHandler(new ThreadPoolExecutor.DiscardPolicy());
         executor.initialize();
+
         return executor;
     }
 
